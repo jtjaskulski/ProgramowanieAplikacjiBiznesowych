@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Company.PortalWWW\\Company.PortalWWW.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Company.Intranet\\Company.Intranet.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
