@@ -1,5 +1,5 @@
-using Company.Intranet.Data;
-using Company.Intranet.Models.CMS;
+using Company.Data.Data;
+using Company.Data.Models.CMS;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,9 +7,9 @@ namespace Company.Intranet.Controllers
 {
     public class PageController : Controller
     {
-        private readonly CompanyIntranetContext _context;
+        private readonly CompanyContext _context;
 
-        public PageController(CompanyIntranetContext context)
+        public PageController(CompanyContext context)
         {
             _context = context;
         }

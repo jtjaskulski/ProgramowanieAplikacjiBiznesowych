@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Company.Intranet.Migrations
+namespace Company.Data.Migrations
 {
     /// <inheritdoc />
     public partial class productsandcategories : Migration

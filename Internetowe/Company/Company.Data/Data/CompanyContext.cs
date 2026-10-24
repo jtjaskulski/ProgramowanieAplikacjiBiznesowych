@@ -1,13 +1,13 @@
-﻿using Company.Intranet.Models.CMS;
-using Company.Intranet.Models.Shop;
+﻿using Company.Data.Models.CMS;
+using Company.Data.Models.Shop;
 using Microsoft.EntityFrameworkCore;
 
-namespace Company.Intranet.Data
+namespace Company.Data.Data
 {
     
-    public class CompanyIntranetContext : DbContext
+    public class CompanyContext : DbContext
     {
-        public CompanyIntranetContext(DbContextOptions<CompanyIntranetContext> options)
+        public CompanyContext(DbContextOptions<CompanyContext> options)
             : base(options)
         {
         }
