@@ -20,7 +20,7 @@ public class NewsController(CompanyIntranetContext context) : Controller
         }
 
         var news = await context.News
-            .FirstOrDefaultAsync(m => m.id == id);
+            .FirstOrDefaultAsync(m => m.IdNews == id);
         if (news == null)
         {
             return NotFound();
@@ -74,7 +74,7 @@ public class NewsController(CompanyIntranetContext context) : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit(int? idnews, [Bind("id,LinkTitle,Title,Content,DisplayOrder")] News news)
     {
-        if (idnews != news.id)
+        if (idnews != news.IdNews)
         {
             return NotFound();
         }
@@ -88,7 +88,7 @@ public class NewsController(CompanyIntranetContext context) : Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!NewsExists(news.id))
+                if (!NewsExists(news.IdNews))
                 {
                     return NotFound();
                 }
@@ -111,7 +111,7 @@ public class NewsController(CompanyIntranetContext context) : Controller
         }
 
         var news = await context.News
-            .FirstOrDefaultAsync(m => m.id == id);
+            .FirstOrDefaultAsync(m => m.IdNews == id);
         if (news == null)
         {
             return NotFound();
@@ -137,6 +137,6 @@ public class NewsController(CompanyIntranetContext context) : Controller
 
     private bool NewsExists(int? id)
     {
-        return context.News.Any(e => e.id == id);
+        return context.News.Any(e => e.IdNews == id);
     }
 }
