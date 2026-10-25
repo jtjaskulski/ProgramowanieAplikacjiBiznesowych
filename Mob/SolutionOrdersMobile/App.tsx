@@ -5,30 +5,18 @@
  * @format
  */
 
-import {ScrollView, StyleSheet, } from 'react-native';
-import Greeting from './src/components/Greeting';
+import {ScrollView, StyleSheet, View,} from 'react-native';
+import SimpleForm from "./src/components/SimpleForm.tsx";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 function App() {
-  return (
-        <ScrollView style={styles.container}>
-            <Greeting name="Anna" age={25} />
-            <Greeting name="Piotr" isVip={true} />
-            <Greeting name="Kasia" age={30} isVip={true} />
-            <Greeting name="Jan" />
-            <Greeting name="Anna" age={25} />
-            <Greeting name="Piotr" isVip={true} />
-            <Greeting name="Kasia" age={30} isVip={true} />
-            <Greeting name="Jan" />
-            <Greeting name="Anna" age={25} />
-            <Greeting name="Piotr" isVip={true} />
-            <Greeting name="Kasia" age={30} isVip={true} />
-            <Greeting name="Jan" />
-            <Greeting name="Anna" age={25} />
-            <Greeting name="Piotr" isVip={true} />
-            <Greeting name="Kasia" age={30} isVip={true} />
-            <Greeting name="Jan" />
-        </ScrollView>
-  );
+    return (
+        <SafeAreaProvider>
+            <View style={styles.container}>
+                <SimpleForm/>
+            </View>
+        </SafeAreaProvider>
+    );
 }
 
 const styles = StyleSheet.create({
