@@ -8,6 +8,7 @@ var server = builder.AddProject<Projects.SolutionOrdersAspire_Server>("server")
     .WithHttpHealthCheck("/health")
     .WithExternalHttpEndpoints();
 
+
 var webfrontend = builder.AddViteApp("webfrontend", "../frontend")
     .WithReference(server)
     .WaitFor(server);
