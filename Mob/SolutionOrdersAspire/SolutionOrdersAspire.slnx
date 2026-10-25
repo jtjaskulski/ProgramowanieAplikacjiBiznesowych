@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="frontend/frontend.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="SolutionOrders.Api/SolutionOrders.Api.csproj" />
+  <Project Path="SolutionOrders.Data/SolutionOrders.Data.csproj" />
+  <Project Path="SolutionOrdersAspire.AppHost/SolutionOrdersAspire.AppHost.csproj" />
+  <Project Path="SolutionOrdersAspire.Server/SolutionOrdersAspire.Server.csproj" />
+</Solution>
