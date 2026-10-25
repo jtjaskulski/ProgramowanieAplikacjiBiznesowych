@@ -1,11 +1,11 @@
-using Company.Intranet.Data;
-using Company.Intranet.Models.CMS;
+using Company.Data.Data;
+using Company.Data.Models.CMS;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Company.Intranet.Controllers
 {
-    public class NewsController(CompanyIntranetContext context) : Controller
+    public class NewsController(CompanyContext context) : Controller
     {
         // GET: NEWS
         public async Task<IActionResult> Index()    

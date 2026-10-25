@@ -1,16 +1,24 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Company.Intranet.Models.CMS
+namespace Company.Data.Models.CMS
 {
-    public class News
+    public class Page
     {
-
+        /// <summary>
+        /// Primary key of page.
+        /// </summary>
         [Key]
-        public int IdNews { get; set; }
+        public int IdPage { get; set; }
 
+        /// <summary>
+        /// Gets or sets the title link associated with the entity. This property is required and must not exceed 10
+        /// characters in length.
+        /// </summary>
+        /// <remarks>Use this property to specify a short, descriptive title link. The value must be
+        /// provided and should not be longer than 10 characters to meet validation requirements.</remarks>
         [Required(ErrorMessage = "Title link is required")]
-        [MaxLength(30, ErrorMessage = "Title link should have only 30 characters.")]
+        [MaxLength(10, ErrorMessage = "Title link should have only 10 characters.")]
         [Display(Name = "Title link")]
         public string LinkTitle { get; set; }
 

@@ -1,4 +1,4 @@
-using Company.Intranet.Data;
+using Company.Data.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Company.Intranet
@@ -39,9 +39,9 @@ namespace Company.Intranet
         private static WebApplication ApplyBuilderPatternToBuildApp(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            builder.Services.AddDbContext<CompanyIntranetContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("CompanyIntranetContext")
-                                     ?? throw new InvalidOperationException("Connection string 'CompanyIntranetContext' not found.")));
+            builder.Services.AddDbContext<CompanyContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("CompanyContext")
+                                     ?? throw new InvalidOperationException("Connection string 'CompanyContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();

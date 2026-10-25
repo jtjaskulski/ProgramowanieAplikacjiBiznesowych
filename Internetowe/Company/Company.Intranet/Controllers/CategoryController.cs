@@ -1,5 +1,5 @@
-using Company.Intranet.Data;
-using Company.Intranet.Models.Shop;
+using Company.Data.Data;
+using Company.Data.Models.Shop;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,9 +7,9 @@ namespace Company.Intranet.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly CompanyIntranetContext _context;
+        private readonly CompanyContext _context;
 
-        public CategoryController(CompanyIntranetContext context)
+        public CategoryController(CompanyContext context)
         {
             _context = context;
         }
