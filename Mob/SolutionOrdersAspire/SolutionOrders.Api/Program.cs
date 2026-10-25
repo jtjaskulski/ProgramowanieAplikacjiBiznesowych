@@ -2,6 +2,7 @@ using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using SolutionOrders.Api.Features.Providers;
+using SolutionOrders.Api.Features.Services;
 using SolutionOrders.Data.Data;
 using System.Reflection;
 
@@ -43,7 +44,7 @@ namespace SolutionOrders.Api
             builder.Services.AddScoped<IItemProvider, ItemProvider>();
 
             // Services
-            //builder.Services.AddScoped<IItemService, ItemService>();
+            builder.Services.AddScoped<IItemService, ItemService>();
 
             // Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());

@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using SolutionOrders.Api.Features.Messages.Commands;
 using SolutionOrders.Api.Features.Messages.DTOs;
 using SolutionOrders.Data.Models;
 
@@ -13,7 +14,7 @@ namespace SolutionOrders.Api.Features.Mappings
                 .Map(dest => dest.UnitName, src => src.UnitOfMeasurement != null
                     ? src.UnitOfMeasurement.Name : null);
 
-            /*config.NewConfig<CreateItemCommand, Item>()
+            config.NewConfig<CreateItemCommand, Item>()
                 .Map(dest => dest.IsActive, _ => true)
                 .Ignore(dest => dest.IdItem)
                 .Ignore(dest => dest.Category)
@@ -24,7 +25,7 @@ namespace SolutionOrders.Api.Features.Mappings
                 .Ignore(dest => dest.IdItem)
                 .Ignore(dest => dest.Category)
                 .Ignore(dest => dest.UnitOfMeasurement!)
-                .Ignore(dest => dest.OrderItems);*/
+                .Ignore(dest => dest.OrderItems);
         }
     }
 }

@@ -28,8 +28,4 @@
     <ProjectReference Include="..\SolutionOrders.Data\SolutionOrders.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Handlers\Commands\" />
-  </ItemGroup>
-
 </Project>
