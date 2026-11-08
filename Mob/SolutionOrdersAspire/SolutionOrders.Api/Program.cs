@@ -37,6 +37,18 @@ namespace SolutionOrders.Api
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
+            // Configure the HTTP request pipeline.
+            if (builder.Environment.IsDevelopment())
+            {
+                builder.Services.AddCors(options =>
+                {
+                    options.AddPolicy("AllowAll",
+                        policy => policy
+                            .AllowAnyOrigin()
+                            .AllowAnyMethod()
+                            .AllowAnyHeader());
+                });
+            }
             // MediatR
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
 
@@ -61,6 +73,7 @@ namespace SolutionOrders.Api
             {
                 app.MapOpenApi();
                 app.MapScalarApiReference();
+                app.UseCors("AllowAll");
             }
         }
 
