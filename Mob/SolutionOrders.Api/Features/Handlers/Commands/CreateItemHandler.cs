@@ -12,6 +12,7 @@ namespace SolutionOrders.Api.Features.Handlers.Commands
         public async Task<int> Handle(CreateItemCommand request, CancellationToken cancellationToken)
         {
             logger.LogInformation("Creating new Item: {Name}", request.Name);
+            logger.LogInformation("Request details: {@Request}", request);
             var item = request.Adapt<Item>();
             await itemService.CreateItem(item, cancellationToken);
             logger.LogInformation("Created item ID: {IdItem}", item.IdItem);
