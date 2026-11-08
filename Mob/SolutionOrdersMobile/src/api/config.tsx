@@ -15,3 +15,9 @@ const getBaseUrl = (): string => {
 };
 
 export const API_BASE_URL = getBaseUrl();
+
+if (__DEV__) {
+// Debug
+console.log('API_BASE_URL:', API_BASE_URL);
+console.log('Platform:', Platform.OS);
+}
