@@ -54,6 +54,8 @@ namespace SolutionOrders.Api
 
             // Providers
             builder.Services.AddScoped<IItemProvider, ItemProvider>();
+            builder.Services.AddScoped<ICategoryProvider, CategoryProvider>();
+            builder.Services.AddScoped<IUnitOfMeasurementProvider, UnitOfMeasurementProvider>();
 
             // Services
             builder.Services.AddScoped<IItemService, ItemService>();
