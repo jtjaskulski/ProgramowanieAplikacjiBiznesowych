@@ -2,7 +2,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: SolutionOrders.API/Dockerfile
+      dockerfile: SolutionOrders.Api/Dockerfile
     container_name: PMAB2026Day-api
     ports:
       - "5000:8080"
@@ -37,4 +37,4 @@ networks:
     driver: bridge
 
 volumes:
-  PMAB2026-data:
+  PMAB2026-data: 
