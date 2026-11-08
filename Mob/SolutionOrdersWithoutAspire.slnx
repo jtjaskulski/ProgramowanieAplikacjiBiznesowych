@@ -1,4 +1,5 @@
 <Solution>
   <Folder Name="/Solution Items/" />
   <Project Path="SolutionOrders.Api/SolutionOrders.Api.csproj" />
+  <Project Path="SolutionOrdersAspire/SolutionOrders.Data/SolutionOrders.Data.csproj" />
 </Solution>

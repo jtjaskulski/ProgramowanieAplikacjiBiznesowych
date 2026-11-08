@@ -12,5 +12,10 @@ namespace SolutionOrders.Api.Features.Messages.Commands
         public string? FotoUrl { get; set; }
         public int? IdUnitOfMeasurement { get; set; }
         public string? Code { get; set; }
+
+        public override string ToString()
+        {
+            return $"Name: {Name}, Description: {Description}, IdCategory: {IdCategory}, Price: {Price}, Quantity: {Quantity}, FotoUrl: {FotoUrl}, IdUnitOfMeasurement: {IdUnitOfMeasurement}, Code: {Code}";
+        }
     }
 }
