@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SolutionOrders.Data\SolutionOrders.Data.csproj" />
+    <ProjectReference Include="..\SolutionOrdersAspire\SolutionOrders.Data\SolutionOrders.Data.csproj" />
   </ItemGroup>
 
 </Project>
