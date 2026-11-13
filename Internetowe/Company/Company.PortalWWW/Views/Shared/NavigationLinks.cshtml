@@ -1,0 +1,22 @@
+@model IEnumerable<Company.Data.Models.CMS.Page>
+
+<ul class="right hide-on-med-and-down">
+    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+    <li>@Html.ActionLink("o firmie", "About", "Home")</li>
+    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.LinkTitle, "Index", "Home", new { id = item.IdPage })</li>
+    }
+</ul>
+
+<ul id="nav-mobile" class="sidenav">
+    <li>@Html.ActionLink("Main page", "Index", "Home")</li>
+    <li>@Html.ActionLink("About company", "About", "Home")</li>
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    @foreach (var item in Model)
+    {
+        <li>@Html.ActionLink(item.LinkTitle, "Index", "Home", new { id = item.IdPage })</li>
+    }
+</ul>
+<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>

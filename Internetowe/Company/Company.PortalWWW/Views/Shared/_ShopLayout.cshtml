@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+@await Html.PartialAsync("Header")
+<body>
+    <nav class="white" role="navigation">
+        <div class="nav-wrapper container">
+            <a id="logo-container" class="brand-logo" asp-area="" asp-controller="Home"
+               asp-action="Index">Akademia WSB-NLU MVC</a>
+            @await Html.PartialAsync("ProductCategory",
+                (IEnumerable<Company.Data.Models.Shop.Category>)ViewBag.ModelProductCategory)
+        </div>
+    </nav>
+
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    @await Html.PartialAsync("NewsPartial",
+        (IEnumerable<Company.Data.Models.CMS.News>)ViewBag.ModelNews)
+    @await Html.PartialAsync("LinkContent")
+    @await Html.PartialAsync("Footer")
+    @await Html.PartialAsync("ScriptSection")
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

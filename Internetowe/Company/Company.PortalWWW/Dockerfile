@@ -13,6 +13,7 @@ FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Company.PortalWWW/Company.PortalWWW.csproj", "Company.PortalWWW/"]
+COPY ["Company.Data/Company.Data.csproj", "./Company.Data/"]
 RUN dotnet restore "./Company.PortalWWW/Company.PortalWWW.csproj"
 COPY . .
 WORKDIR "/src/Company.PortalWWW"

@@ -1,0 +1,39 @@
+@model Company.Data.Models.Shop.Product
+@{
+    ViewData["Title"] = "Szczegóły towaru";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Szczegóły towaru</h1>
+            <br>
+            <h2 class="header center teal-text text-lighten-2">@Model.Name</h2>
+            <div class="row center">
+                <p class="header col s12 light">
+                    <h3>Kod:</h3><br />
+                    @Model.Code
+                    <br />
+                </p>
+                <p class="header col s12 light">
+                    <h3>Cena:</h3><br />
+                    @Model.Price
+                    <br />
+                </p>
+                <p class="header col s12 light">
+                    <h3>Opis:</h3><br />
+                    @Model.Description
+                    <br />
+                </p>
+            
+                Data i godzina edycji: @DateTime.Now.ToString()
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="parallax"><img src="~/images/image1.jpg" alt="I <3 Mikruta"></div>
+    </div>
+</div>
