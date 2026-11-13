@@ -1,0 +1,18 @@
+@model IEnumerable<Company.Data.Models.CMS.News>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            @foreach (var news in Model)
+            {
+                <div class="col s12 m4">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                        <h5 class="center">@Html.ActionLink(news.LinkTitle, "Index", "News", new { id = news.IdNews}, null)</h5>
+                        <p class="light">@news.LinkTitle</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

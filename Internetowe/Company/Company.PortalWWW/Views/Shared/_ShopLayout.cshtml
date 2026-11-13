@@ -15,7 +15,10 @@
         @RenderBody()
     </main>
 
+    @await Html.PartialAsync("NewsPartial",
+        (IEnumerable<Company.Data.Models.CMS.News>)ViewBag.ModelNews)
     @await Html.PartialAsync("LinkContent")
+    @await Html.PartialAsync("Footer")
     @await Html.PartialAsync("ScriptSection")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
