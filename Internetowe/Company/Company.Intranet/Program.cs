@@ -10,8 +10,16 @@ namespace Company.Intranet
             var app = ApplyBuilderPatternToBuildApp(args);
             InitializeDevelopmentEnviroment(app);
             InitializeRoutingAndHttp(app);
+            InitializeAutomaticMigrations(app);
             app.UseAuthorization();
             app.Run();
+        }
+
+        private static void InitializeAutomaticMigrations(WebApplication app)
+        {
+            using var scope = app.Services.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<CompanyContext>();
+            db.Database.Migrate();
         }
 
         private static void InitializeDevelopmentEnviroment(WebApplication app)
