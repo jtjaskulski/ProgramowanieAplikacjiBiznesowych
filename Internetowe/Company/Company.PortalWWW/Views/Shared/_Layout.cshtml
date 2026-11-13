@@ -1,149 +1,22 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Company.PortalWWW</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="~/lib/materialize/css/materialize.css" rel="stylesheet" />
-    <link href="~/lib/materialize/css/materialize.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-</head>
+@await Html.PartialAsync("Header")
 <body>
     <nav class="white" role="navigation">
         <div class="nav-wrapper container">
-            <a id="logo-container" class="brand-logo" asp-area="" asp-controller="Home" asp-action="Index">Company.PortalWWW</a>
-            <ul class="right hide-on-med-and-down">
-                <li>@Html.ActionLink("Main page", "Index", "Home")</li>
-                <li>@Html.ActionLink("About company", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-
-            <ul id="nav-mobile" class="sidenav">
-                <li>@Html.ActionLink("Main page", "Index", "Home")</li>
-                <li>@Html.ActionLink("About company", "About", "Home")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a id="logo-container" class="brand-logo" asp-area="" asp-controller="Home"
+               asp-action="Index">Akademia WSB-NLU MVC</a>
+            @await Html.PartialAsync("NavigationLinks",
+                (IEnumerable<Company.Data.Models.CMS.Page>)ViewBag.ModelPage)
         </div>
     </nav>
 
     <main role="main">
         @RenderBody()
     </main>
-    
-<div class="container">
-    <div class="section">
-        <div class="row">
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-                    <h5 class="center">Speeds up development</h5>
-                    <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
-                </div>
-            </div>
 
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-                    <h5 class="center">User Experience Focused</h5>
-                    <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-                </div>
-            </div>
-
-            <div class="col s12 m4">
-                <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-                    <h5 class="center">Easy to work with</h5>
-                    <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-        <div class="container">
-            <div class="row center">
-                <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-            </div>
-        </div>
-    </div>
-    <div class="parallax"><img src="~/images/background2.jpg" alt="Unsplashed background img 2"></div>
-</div>
-
-<div class="container">
-    <div class="section">
-        <div class="row">
-            <div class="col s12 center">
-                <h3><i class="material-icons brown-text">send</i></h3>
-                <h4>Skontaktuj sie z nami</h4>
-                <p class="left-align light">
-                    Akademia WSB-NLU
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-        <div class="container">
-            <div class="row center">
-                <h5 class="header col s12 light">Piekny sklep</h5>
-            </div>
-        </div>
-    </div>
-    <div class="parallax"><img src="~/images/background3.jpg" alt="Unsplashed background img 3"></div>
-
-</div>
-    <footer class="page-footer teal">
-        <div class="container">
-            <div class="row">
-                <div class="col l6 s12">
-                    <h5 class="white-text">Witamy</h5>
-                    <p class="grey-text text-lighten-4">Akademia WSB-NLU</p>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-                <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
-                    <ul>
-                        <li><a class="white-text" href="#!">Link 1</a></li>
-                        <li><a class="white-text" href="#!">Link 2</a></li>
-                        <li><a class="white-text" href="#!">Link 3</a></li>
-                        <li><a class="white-text" href="#!">Link 4</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                Made by Akademia WSB-NLU
-            </div>
-        </div>
-    </footer>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/materialize/js/materialize.js"></script>
-    <script src="~/lib/materialize/js/materialize.min.js"></script>
-    <script>
-        (function ($) {
-            $(function () {
-                $('.sidenav').sidenav();
-                $('.parallax').parallax();
-                console.log(typeof(NaN));
-            });
-        })(jQuery);
-    </script>
+    @await Html.PartialAsync("LinkContent")
+    @await Html.PartialAsync("ScriptSection")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
