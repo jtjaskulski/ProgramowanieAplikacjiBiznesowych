@@ -1,0 +1,72 @@
+@model Company.PortalWWW.ViewModels.CartViewModel
+
+@{
+    ViewData["Title"] = "Koszyk";
+    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+}
+
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Witam w Koszyku!!!</h1>
+            <div class="row center">
+                Data i godzina edycji: @DateTime.Now.ToString()
+            </div>
+            <br>
+            <br>
+        </div>
+        <div class="parallax"><img
+                src="https://images.unsplash.com/photo-1626428091984-48f9ffbf927c?auto=format&fit=crop&w=2400&h=1400&q=80"
+                alt="I <3 Mikruta"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            @if (Model?.CartItems.Any() ?? false)
+            {
+                foreach (var cartItem in Model?.CartItems)
+                {
+                    var price = cartItem.Product.Price * cartItem.Quantity;
+                    <div class="col s12 m4">
+                            <div class="icon-block">
+                                <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                                <h5 class="center">@cartItem.Product.Name</h5>
+                                <p class="light">Cena jednostkowa: @cartItem.Product.Price.ToString("0.00")</p>
+                                <p class="light">Ilość: @cartItem.Quantity.ToString("0.00")</p>
+                                <p class="light">Cena: @price.ToString("0.00")</p>
+                                <img alt="@cartItem.Product.Name" src="@cartItem.Product.FotoURL" height="200"
+                                     width="200"/>
+                                <div class="row center">
+                                    <a asp-action="DeleteCartItem" asp-controller="Cart" asp-route-id="@cartItem.IdCartItem" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Usuń z koszyka</a>
+                                </div>
+                                <br/>
+                                <div class="row center">
+                                    <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@cartItem.IdProduct" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                                </div>
+                                <br/>
+                                <div class="row center">
+                                    <a asp-action="Details" asp-controller="Shop" asp-route-id="@cartItem.IdProduct" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Detale produktu</a>
+                                </div>
+                            </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="col s12 ">
+                    <div class="icon-block">
+                        <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                        <h5 class="center">Koszyk jest pusty!</h5>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,63 @@
+@model System.Collections.Generic.List<Company.Data.Models.Shop.Product>
+
+@{
+    ViewBag.Title = "Promocje";
+    Layout = "_ShopLayout";
+}
+
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Promocje</h1>
+            <div class="row center">
+                <p class="header col s12 light">
+                    Prezentowane produkty są na promocji!
+                    <br />
+                </p>
+                Data i godzina edycji: @DateTime.Now.ToString()
+                
+                
+            </div>
+            <br>
+            <br>
+        </div>
+
+        
+        <div class="parallax"><img src="https://images.unsplash.com/photo-1626428091984-48f9ffbf927c?auto=format&fit=crop&w=2400&h=1400&q=80" alt="I <3 Mikruta"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            @if (Model?.Any() ?? false)
+            {
+                foreach (var product in Model)
+                {
+                    <div class="col s12 m4">
+                            <div class="icon-block">
+                                <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                                <h5 class="center">@product.Name</h5>
+                                <p class="light">@product.Price.ToString("0.00")</p>
+                                <p class="light">@product.Price.ToString("0.00")</p>
+                                <a href="@Url.Action("Details",new {id=product.IdProduct})">
+                                    <img alt="@product.Name" src="@product.FotoURL" height="40" width="40" />
+                                </a> 
+                            </div>
+                            <div class="row center">
+                                <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@product.IdProduct" id="download-button"
+                                   class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                            </div>
+                            <br/>
+                            <div class="row center">
+                                <a asp-action="Details" asp-controller="Shop" asp-route-id="@product.IdProduct" id="download-button"
+                                   class="btn-large waves-effect waves-light teal lighten-1">Detale produktu</a>
+                            </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>

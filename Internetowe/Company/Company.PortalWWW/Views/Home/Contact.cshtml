@@ -1,0 +1,31 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Kontakt!</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">p_jtjaskulski@wsb-nlu.edu.pl</h5>
+            </div>
+            <div class="row center">
+                <h5 class="header col s12 light">Company Sp. z o.o.<br>ul. Przemysłowa 12<br>32-050 Skawina<br><br>
+                    tel. +48 12 350 20 40<br>e-mail: sklep@company-demo.pl<br><br>
+                    Biuro obsługi: poniedziałek–piątek, 8:00–16:00.</h5>
+            </div>
+            <div class="row center">
+                <a asp-action="Index" asp-controller="Shop" id="download-button"
+                   class="btn-large waves-effect waves-light teal lighten-1">Do sklepu</a>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="parallax"><img src="https://images.unsplash.com/photo-1626428091984-48f9ffbf927c?auto=format&fit=crop&w=2400&h=1400&q=80" alt="I <3 Mikruta"></div>
+</div>

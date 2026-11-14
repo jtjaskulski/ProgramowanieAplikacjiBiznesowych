@@ -251,6 +251,9 @@ namespace Company.Data.Migrations
                     b.Property<int>("IdCategory")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsDiscount")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

@@ -12,7 +12,7 @@ html {
 
 nav ul a,
 nav .brand-logo {
-  color: #444;
+  color: #1565c0;
 }
 
 p {
@@ -20,7 +20,7 @@ p {
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+  color: #1565c0;
 }
 
 .parallax-container {
@@ -58,4 +58,67 @@ p {
 
 footer.page-footer {
   margin: 0;
+}
+
+body {
+  color: #212121;
+}
+
+a {
+  color: #1565c0;
+}
+
+.teal,
+.teal.lighten-1,
+.teal.lighten-2,
+.teal.lighten-3,
+.teal.lighten-4,
+.teal.lighten-5,
+.teal.darken-1,
+.teal.darken-2,
+.teal.darken-3,
+.teal.darken-4,
+footer.page-footer.teal {
+  background-color: #1565c0 !important;
+}
+
+.teal-text,
+.teal-text.text-lighten-1,
+.teal-text.text-lighten-2,
+.teal-text.text-lighten-3,
+.teal-text.text-darken-1,
+.teal-text.text-darken-2 {
+  color: #1565c0 !important;
+}
+
+.parallax-container,
+.parallax-container .teal-text,
+.parallax-container .teal-text.text-lighten-2,
+.parallax-container .header {
+  color: #fff !important;
+}
+
+.brown-text,
+.brown-text.text-lighten-1,
+.brown-text.text-darken-1,
+.brown-text.text-darken-2 {
+  color: #1565c0 !important;
+}
+
+.btn,
+.btn-large,
+.btn-small,
+.btn-floating {
+  background-color: #1565c0;
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover,
+.btn-floating:hover {
+  background-color: #0d47a1;
+}
+
+footer.page-footer .footer-copyright {
+  background-color: #0d47a1;
 }

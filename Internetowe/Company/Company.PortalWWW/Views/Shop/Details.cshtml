@@ -11,29 +11,41 @@
             <h1 class="header center teal-text text-lighten-2">Szczegóły towaru</h1>
             <br>
             <h2 class="header center teal-text text-lighten-2">@Model.Name</h2>
-            <div class="row center">
-                <p class="header col s12 light">
-                    <h3>Kod:</h3><br />
-                    @Model.Code
-                    <br />
-                </p>
-                <p class="header col s12 light">
-                    <h3>Cena:</h3><br />
-                    @Model.Price
-                    <br />
-                </p>
-                <p class="header col s12 light">
-                    <h3>Opis:</h3><br />
-                    @Model.Description
-                    <br />
-                </p>
-            
-                Data i godzina edycji: @DateTime.Now.ToString()
-            </div>
-            <br>
-            <br>
+            <div class="parallax"><img
+                    src="https://images.unsplash.com/photo-1626428091984-48f9ffbf927c?auto=format&fit=crop&w=2400&h=1400&q=80"
+                    alt="I <3 Mikruta"></div>
         </div>
+    </div>
+</div>
 
-        <div class="parallax"><img src="https://placehold.co/1920x900/00695c/00695c" alt="I <3 Mikruta"></div>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="icon-block">
+                    <div class="row center">
+                        <h5 class="center">@Model.Name</h5>
+                        <p class="light">
+                        <h3>Kod:</h3><br/>
+                        @Model.Code
+                        </p>
+                        <p class="light">
+                        <h3>Opis:</h3><br/>
+                        @Model.Description
+                        </p>
+                        <p class="light">@Model.Price.ToString("0.00")</p>
+                        <p class="light">Data i godzina edycji: @DateTime.Now.ToString()</p>
+                        <a href="@Url.Action("Details", new { id = Model.IdProduct })">
+                            <img alt="@Model.Name" src="@Model.FotoURL" height="400" width="400" />
+                        </a>
+                        
+                        <div class="row center">
+                            <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@Model.IdProduct" id="download-button"
+                               class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

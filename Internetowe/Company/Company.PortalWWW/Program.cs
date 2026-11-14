@@ -1,4 +1,5 @@
 using Company.Data.Data;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Company.PortalWWW
@@ -9,6 +10,7 @@ namespace Company.PortalWWW
         {
             var app = ApplyBuilderPatternToBuildApp(args);
             InitializeDevelopmentEnviroment(app);
+            app.UseSession();
             InitializeRoutingAndHttp(app);
             app.UseAuthorization();
             app.Run();
@@ -45,7 +47,21 @@ namespace Company.PortalWWW
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            InitializeSessionInServices(builder);
             return builder.Build();
+        }
+
+        private static void InitializeSessionInServices(WebApplicationBuilder builder)
+        {
+            builder.Services.AddDistributedMemoryCache();
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = builder.Environment.IsDevelopment()
+                    ? TimeSpan.FromSeconds(40)
+                    : TimeSpan.FromMinutes(20);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
     }
 }

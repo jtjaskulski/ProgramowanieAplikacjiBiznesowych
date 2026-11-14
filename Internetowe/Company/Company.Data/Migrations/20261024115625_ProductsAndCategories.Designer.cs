@@ -13,7 +13,7 @@ namespace Company.Data.Migrations
 {
     [DbContext(typeof(CompanyContext))]
     [Migration("20261024115625_productsandcategories")]
-    partial class productsandcategories
+    partial class ProductsAndCategories
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

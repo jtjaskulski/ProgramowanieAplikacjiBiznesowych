@@ -1,6 +1,7 @@
 @model IEnumerable<Company.Data.Models.Shop.Category>
 
 <ul class="right hide-on-med-and-down">
+    <li>@Html.ActionLink("Promocje", "Discounts", "Shop")</li> 
     @foreach (var item in Model)
     { 
         <li>@Html.ActionLink(item.Name, "Index", "Shop", new { id = item.IdCategory})</li>

@@ -1,0 +1,59 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Witaj w sklepie</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Sklep jest nowoczesny i doskonały. Sklep jest nowoczesny i
+                    doskonały. Sklep jest nowoczesny i doskonały.</h5>
+            </div>
+            <div class="row center">
+                <a asp-action="Index" asp-controller="Shop" id="download-button"
+                   class="btn-large waves-effect waves-light teal lighten-1">Do sklepu</a>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="parallax"><img src="https://images.unsplash.com/photo-1626428091984-48f9ffbf927c?auto=format&fit=crop&w=2400&h=1400&q=80" alt="I <3 Mikruta"></div>
+</div>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">O nas</h5>
+                    <p class="light">Kim jesteśmy
+                        Działamy od 2014 roku. Zaczynaliśmy od małego serwisu laptopów w Krakowie, dziś wysyłamy zamówienia z magazynu w Skawinie i punktu odbioru w Warszawie.
+
+                        Stawiamy na sprzęt, który sami chcielibyśmy kupić: sprawdzone serie, czytelne opisy i realne stany magazynowe.
+                        W stałej sprzedaży mamy laptopy biurowe i gamingowe, smartfony, tablety, monitory, 
+                        słuchawki, podzespoły oraz sprzęt sieciowy.<br><br>
+                        Do każdego produktu dopisujemy kod handlowy, cenę brutto i krótki opis zastosowania,
+                        żeby porównanie modeli nie wymagało wychodzenia poza sklep.
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                    <h5 class="center">Regulamin</h5>
+                    <p class="light">Sklep prowadzi Company Sp. z o.o. Ceny zawierają podatek VAT. 
+                        Złożenie zamówienia jest ofertą kupna, a umowa dochodzi do skutku w chwili potwierdzenia
+                        mailowego.<br><br>
+                        Regulamin nie zastępuje informacji na karcie produktu: tam znajdziesz specyfikację i aktualną
+                        cenę.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
