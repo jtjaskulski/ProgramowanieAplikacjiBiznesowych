@@ -25,33 +25,33 @@
             <br>
         </div>
 
-        <div>
-            <table>
-                <thead>
-                <tr>
-                    <th data-field="id">Foto</th>
-                    <th data-field="name">Nazwa</th>
-                    <th data-field="price">Cena</th>
-                </tr>
-                </thead>
+        
+        <div class="parallax"><img src="https://placehold.co/1920x900/4e342e/4e342e" alt="I <3 Mikruta" width="2400" height="900"></div>
+    </div>
+</div>
 
-                <tbody>
-                @foreach (var product in Model?.Products)
+<div class="container">
+    <div class="section">
+        <div class="row">
+            @if (Model?.Products?.Any() ?? false)
+            {
+                foreach (var product in Model?.Products)
                 {
-                    <tr>
-                        <td>
-                            Foto
-                            @* <a href="@Url.Action("Details",new {id=product.IdProduct})">
-            <img alt="@product.Name" src="@product.FotoURL" height="40" width="40" />
-                           </a> *@
-                        </td>
-                        <td><a asp-action="Details" asp-route-id="@product.IdProduct">@product.Name</a></td>
-                        <td>@product.Price.ToString("0.00")</td>
-                    </tr>
+                    <div class="col s12 m4">
+                        <a asp-action="Details" asp-route-id="@product.IdProduct">
+                            <div class="icon-block">
+                                <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                                <h5 class="center">@product.Name</h5>
+                                <p class="light">@product.Price.ToString("0.00")</p>
+                                <p class="light">@product.Price.ToString("0.00")</p>
+                                <a href="@Url.Action("Details",new {id=product.IdProduct})">
+                                    <img alt="@product.Name" src="@product.FotoURL" height="40" width="40" />
+                                </a> 
+                            </div>
+                        </a>
+                    </div>
                 }
-                </tbody>
-            </table>
+            }
         </div>
-        <div class="parallax"><img src="~/images/placeholder-1.jpg" alt="I <3 Mikruta" width="2400" height="900"></div>
     </div>
 </div>

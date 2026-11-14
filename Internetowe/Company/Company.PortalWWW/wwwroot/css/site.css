@@ -29,18 +29,6 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
-
-.parallax-container .parallax {
-  background-color: #cfd8dc;
-}
-
-.parallax-container .parallax img {
-  width: 100%;
-  height: 140%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
-}
   .parallax-container .section {
     width: 100%;
   }
