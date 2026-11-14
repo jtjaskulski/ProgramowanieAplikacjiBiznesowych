@@ -94,12 +94,10 @@ public static class CompanySeeder
         context.Category.AddRange(
             Category("Laptopy", "Komputery przenośne do biura, nauki i gier."),
             Category("Smartfony", "Telefony z Androidem i iOS, od modeli codziennych po flagowce."),
-            Category("Tablety", "Tablety do notatek, nauki i multimediów."),
             Category("Monitory", "Ekrany biurowe, graficzne i gamingowe."),
             Category("Audio", "Słuchawki, głośniki i zestawy do wideokonferencji."),
             Category("Akcesoria", "Etui, ładowarki, kable i drobne dodatki."),
-            Category("Podzespoły", "Dyski, pamięci RAM, zasilacze i obudowy."),
-            Category("Sieć", "Routery, przełączniki i karty sieciowe.")
+            Category("Podzespoły", "Dyski, pamięci RAM, zasilacze i obudowy.")
         );
     }
 
@@ -110,20 +108,12 @@ public static class CompanySeeder
 
         var categories = context.Category.ToDictionary(c => c.Name, c => c.IdCategory);
 
-        foreach (var (name, description) in MissingCategories(categories.Keys))
-        {
-            var category = Category(name, description);
-            context.Category.Add(category);
-            context.SaveChanges();
-            categories[name] = category.IdCategory;
-        }
-
         context.Product.AddRange(Catalog.Select(item => new Product
         {
             Code = item.Code,
             Name = item.Name,
             Price = item.Price,
-            FotoURL = $"https://picsum.photos/seed/{item.Code}/480/360",
+            FotoURL = $"https://placehold.co/480x360/png?text={Uri.EscapeDataString(item.Code)}",
             Description = item.Description,
             IdCategory = categories[item.Category],
             IsDiscount = new Random().Next(80) % 2 == 1
@@ -213,16 +203,6 @@ public static class CompanySeeder
                     CreatedDate = now.AddHours(-(cart.HoursAgo + i))
                 });
             }
-        }
-    }
-
-    private static IEnumerable<(string Name, string Description)> MissingCategories(IEnumerable<string> existing)
-    {
-        var present = existing.ToHashSet(StringComparer.Ordinal);
-        foreach (var name in Catalog.Select(item => item.Category).Distinct())
-        {
-            if (!present.Contains(name))
-                yield return (name, "Kategoria uzupełniona przez seeder.");
         }
     }
 
@@ -324,12 +304,6 @@ public static class CompanySeeder
             "Czysty system, mocny aparat i pięć lat aktualizacji. Dobry wybór, jeśli telefon ma zostać na dłużej."),
         ("Smartfony", "PHN-F01", "Smartfon Flagowiec 256 GB", 4599.00m,
             "Flagowiec z jasnym ekranem 120 Hz, szybkim ładowaniem i wodoszczelną obudową."),
-        ("Tablety", "TAB-1001", "Tablet Note 10", 1799.00m,
-            "Tablet 10,4 cala do notatek i filmów. Rysik jest w zestawie, a obudowa mieści się w mniejszym plecaku."),
-        ("Tablety", "TAB-1101", "Tablet Study 11", 2399.00m,
-            "11 cali, klawiatura w zestawie i 128 GB pamięci. Wygodny do zajęć online i czytania skryptów."),
-        ("Tablety", "TAB-1201", "Tablet Draw 12", 3299.00m,
-            "Ekran 12,4 cala o wysokiej rozdzielczości i rysik z małą latencją. Do szkiców i oznaczania PDF-ów."),
         ("Monitory", "MON-2401", "Monitor 24 cale IPS", 649.00m,
             "24 cale, matryca IPS, 75 Hz i cienkie ramki. Podstawowy ekran do biurka, z regulacją pochylenia."),
         ("Monitory", "MON-2701", "Monitor 27 cali IPS", 999.00m,
@@ -367,14 +341,6 @@ public static class CompanySeeder
         ("Podzespoły", "PC-PSU01", "Zasilacz 650 W 80+", 399.00m,
             "Zasilacz 650 W z certyfikatem 80 Plus Bronze i odpinanymi kablami. Do zestawów z jedną kartą graficzną."),
         ("Podzespoły", "PC-CASE1", "Obudowa ATX z siatką", 279.00m,
-            "Przewiewna obudowa ATX z panelem bocznym ze szkła i miejscem na chłodzenie z przodu."),
-        ("Sieć", "NET-R01", "Router Wi-Fi 6", 349.00m,
-            "Router dwuzakresowy Wi-Fi 6 do mieszkania. Cztery porty LAN i prosta aplikacja do konfiguracji."),
-        ("Sieć", "NET-R02", "Router Wi-Fi 6 mesh", 699.00m,
-            "Zestaw mesh na większe mieszkanie. Drugi punkt dokłada się bez przeciągania kabla przez korytarz."),
-        ("Sieć", "NET-S01", "Przełącznik 8 portów", 119.00m,
-            "Metalowy switch gigabitowy, 8 portów, bez wentylatora. Do biurka albo szafy w domu."),
-        ("Sieć", "NET-U01", "Karta USB Wi-Fi 6", 99.00m,
-            "Karta USB dla komputera, który nie ma wbudowanego Wi-Fi. Działa od razu po podłączeniu.")
+            "Przewiewna obudowa ATX z panelem bocznym ze szkła i miejscem na chłodzenie z przodu.")
     ];
 }
