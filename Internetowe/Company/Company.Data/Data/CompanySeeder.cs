@@ -40,44 +40,16 @@ public static class CompanySeeder
                 "Company to sklep ze sprzętem komputerowym i elektroniką użytkową. " +
                 "Sprzedajemy laptopy, smartfony, monitory i akcesoria z dostawą na terenie całej Polski.<br><br>" +
                 "Poniżej znajdziesz aktualności, a w zakładce Sklep pełną ofertę pogrupowaną według kategorii."),
-            Page(2, "O nas", "Kim jesteśmy",
-                "Działamy od 2014 roku. Zaczynaliśmy od małego serwisu laptopów w Krakowie, " +
-                "dziś wysyłamy zamówienia z magazynu w Skawinie i punktu odbioru w Warszawie.<br><br>" +
-                "Stawiamy na sprzęt, który sami chcielibyśmy kupić: sprawdzone serie, czytelne opisy i realne stany magazynowe."),
-            Page(3, "Oferta", "Nasza oferta",
-                "W stałej sprzedaży mamy laptopy biurowe i gamingowe, smartfony, tablety, monitory, " +
-                "słuchawki, podzespoły oraz sprzęt sieciowy.<br><br>" +
-                "Do każdego produktu dopisujemy kod handlowy, cenę brutto i krótki opis zastosowania, " +
-                "żeby porównanie modeli nie wymagało wychodzenia poza sklep."),
-            Page(4, "Kontakt", "Dane kontaktowe",
-                "Company Sp. z o.o.<br>ul. Przemysłowa 12<br>32-050 Skawina<br><br>" +
-                "tel. +48 12 350 20 40<br>e-mail: sklep@company-demo.pl<br><br>" +
-                "Biuro obsługi: poniedziałek–piątek, 8:00–16:00."),
-            Page(5, "Dostawa", "Dostawa i płatności",
-                "Kurier DPD i InPost oraz odbiór osobisty w Skawinie i Warszawie. " +
+            Page(2, "Dostawa", "Dostawa i płatności",
+                "Kurier InPost oraz odbiór osobisty w Skawinie i Warszawie. " +
                 "Darmowa dostawa od 300 zł. Zamówienia złożone do 14:00 wychodzą tego samego dnia roboczego.<br><br>" +
                 "Płatność: szybki przelew, BLIK, karta lub przy odbiorze."),
-            Page(6, "Zwroty", "Zwroty i reklamacje",
-                "Masz 14 dni na odstąpienie od umowy zawartej na odległość. " +
-                "Towar powinien wrócić kompletny, w opakowaniu, które da się ponownie wysłać.<br><br>" +
-                "Reklamacje z tytułu rękojmi przyjmujemy przez formularz w mailu potwierdzającym zamówienie. " +
-                "Sprzęt objęty gwarancją producenta kierujemy do autoryzowanego serwisu."),
-            Page(7, "Regulamin", "Regulamin sklepu",
-                "Sklep prowadzi Company Sp. z o.o. Ceny zawierają podatek VAT. " +
-                "Złożenie zamówienia jest ofertą kupna, a umowa dochodzi do skutku w chwili potwierdzenia mailowego.<br><br>" +
-                "Regulamin nie zastępuje informacji na karcie produktu: tam znajdziesz specyfikację i aktualną cenę."),
-            Page(8, "FAQ", "Pytania i odpowiedzi",
-                "Czy mogę odebrać zamówienie osobiście? Tak, po mailu „gotowe do odbioru”.<br>" +
-                "Czy fakturę wystawiacie dla firmy? Tak, podaj NIP w uwagach do zamówienia.<br>" +
-                "Ile trwa wymiana? Po otrzymaniu zwrotu wysyłamy nowy egzemplarz w 2 dni robocze."),
-            Page(9, "Kariera", "Praca w Company",
+            Page(3, "Regulamin", "Regulamin sklepu",
+                ""),
+            Page(4, "Kariera", "Praca w Company",
                 "Szukamy osób do magazynu, obsługi klienta i serwisu laptopów. " +
                 "Praca stacjonarna w Skawinie, jedna zmiana, wdrożenie przy doświadczonym zespole.<br><br>" +
-                "CV wysyłaj na praca@company-demo.pl z nazwą stanowiska w tytule."),
-            Page(10, "Nowosci", "Co nowego w ofercie",
-                "Co miesiąc dokładamy kilka serii: obecnie laptopy 14 cali do biura, " +
-                "monitory 27 cali z matrycą IPS oraz zestawy słuchawek do pracy zdalnej.<br><br>" +
-                "Starsze serie przeceniamy zamiast trzymać je w magazynie, dlatego warto zaglądać do kategorii promocji w aktualnościach.")
+                "CV wysyłaj na praca@company-demo.pl z nazwą stanowiska w tytule.")
         );
     }
 
