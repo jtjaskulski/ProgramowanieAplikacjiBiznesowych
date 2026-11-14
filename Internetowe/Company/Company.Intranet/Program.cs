@@ -20,6 +20,7 @@ namespace Company.Intranet
             using var scope = app.Services.CreateScope();
             var db = scope.ServiceProvider.GetRequiredService<CompanyContext>();
             db.Database.Migrate();
+            CompanySeeder.Seed(db);
         }
 
         private static void InitializeDevelopmentEnviroment(WebApplication app)

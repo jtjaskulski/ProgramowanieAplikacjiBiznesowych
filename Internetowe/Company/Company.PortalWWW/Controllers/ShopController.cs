@@ -27,7 +27,7 @@ public class ShopController(CompanyContext context, ILogger<CartController>  log
         }
 
         var item = 
-            context.Category
+            await context.Category
                 .Include(cat => cat.Products)
                 .AsNoTracking()
             .FirstOrDefaultAsync(category => category.IdCategory == id);

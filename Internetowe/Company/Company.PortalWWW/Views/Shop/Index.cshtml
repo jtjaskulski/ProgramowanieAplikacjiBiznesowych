@@ -1,32 +1,57 @@
-@model IEnumerable<Company.Data.Models.Shop.Product>
+@model Company.Data.Models.Shop.Category?
 @{
     ViewData["Title"] = "Sklep";
     Layout = "~/Views/Shared/_ShopLayout.cshtml";
 }
-<div>
-    <table>
-        <thead>
-        <tr>
-            <th data-field="id">Foto</th>
-            <th data-field="name">Nazwa</th>
-            <th data-field="price">Cena</th>
-        </tr>
-        </thead>
 
-        <tbody>
-        @foreach (var product in Model)
-        {
-            <tr>
-                <td>
-                    Foto
-                    @* <a href="@Url.Action("Details",new {id=product.IdProduct})">
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+        <div class="container">
+            <br><br>
+            <h1 class="header center teal-text text-lighten-2">Szczegóły towaru</h1>
+            <br>
+            <h2 class="header center teal-text text-lighten-2">@Model.Name</h2>
+            <div class="row center">
+                <p class="header col s12 light">
+                    @Model.Description
+                    <br />
+                </p>
+                Data i godzina edycji: @DateTime.Now.ToString()
+                
+                
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div>
+            <table>
+                <thead>
+                <tr>
+                    <th data-field="id">Foto</th>
+                    <th data-field="name">Nazwa</th>
+                    <th data-field="price">Cena</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var product in Model?.Products)
+                {
+                    <tr>
+                        <td>
+                            Foto
+                            @* <a href="@Url.Action("Details",new {id=product.IdProduct})">
             <img alt="@product.Name" src="@product.FotoURL" height="40" width="40" />
                            </a> *@
-                </td>
-                <td><a asp-action="Details" asp-route-id="@product.IdProduct">@product.Name</a></td>
-                <td>@product.Price.ToString("0.00")</td>
-            </tr>
-        }
-        </tbody>
-    </table>
+                        </td>
+                        <td><a asp-action="Details" asp-route-id="@product.IdProduct">@product.Name</a></td>
+                        <td>@product.Price.ToString("0.00")</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+        <div class="parallax"><img src="~/images/placeholder-1.jpg" alt="I <3 Mikruta" width="2400" height="900"></div>
+    </div>
 </div>
