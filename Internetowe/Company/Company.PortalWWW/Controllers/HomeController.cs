@@ -10,20 +10,6 @@ namespace Company.PortalWWW.Controllers
     {
         public async Task<IActionResult> Index(int? id)
         {
-            ViewBag.ModelPage =
-            (
-                from page in context.Page 
-                orderby page.DisplayOrder 
-                select page
-            ).ToList();
-
-            ViewBag.ModelNews =
-            (
-                from news in context.News
-                orderby news.DisplayOrder
-                select news
-            ).ToList();
-            
             if (id == null)
             {
                 id = (await context.Page.FirstOrDefaultAsync())?.IdPage;
@@ -34,7 +20,12 @@ namespace Company.PortalWWW.Controllers
             return View(item);
         }
 
-        public IActionResult Privacy()
+        public IActionResult Contact()
+        {
+            return View();
+        }
+        
+        public IActionResult About()
         {
             return View();
         }

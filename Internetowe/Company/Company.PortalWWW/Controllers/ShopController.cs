@@ -8,14 +8,6 @@ public class ShopController(CompanyContext context, ILogger<CartController>  log
 {
     public async Task<IActionResult> Index(int? id)
     {
-        ViewBag.ModelProductCategory = await context.Category.AsNoTracking().ToListAsync();
-        ViewBag.ModelNews =
-        (
-            from news in context.News
-            orderby news.DisplayOrder
-            select news
-        ).ToList();
-        
         if (id == null)
         {
             var firstCategory = await context.Category.FirstOrDefaultAsync();
@@ -36,14 +28,6 @@ public class ShopController(CompanyContext context, ILogger<CartController>  log
 
     public async Task<IActionResult> Details(int? id)
     {
-        ViewBag.ModelProductCategory = await context.Category.AsNoTracking().ToListAsync();
-        
-        ViewBag.ModelNews =
-        (
-            from news in context.News
-            orderby news.DisplayOrder
-            select news
-        ).ToList();
         var item = await context.Product.FirstOrDefaultAsync(a => a.IdProduct == id);
         if (item == null)
         {
