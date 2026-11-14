@@ -38,7 +38,6 @@
                 foreach (var product in Model?.Products)
                 {
                     <div class="col s12 m4">
-                        <a asp-action="Details" asp-route-id="@product.IdProduct">
                             <div class="icon-block">
                                 <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
                                 <h5 class="center">@product.Name</h5>
@@ -46,8 +45,17 @@
                                 <a href="@Url.Action("Details",new {id=product.IdProduct})">
                                     <img alt="@product.Name" src="@product.FotoURL" height="200" width="200" />
                                 </a> 
+                                <div class="row center">
+                                    <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@product.IdProduct" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                                </div>
+                                <br/>
+                                <div class="row center">
+                                    <a asp-action="Details" asp-controller="Shop" asp-route-id="@product.IdProduct" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Detale produktu</a>
+                                </div>
                             </div>
-                        </a>
+                        <br/>
                     </div>
                 }
             }

@@ -38,6 +38,11 @@
                         <a href="@Url.Action("Details", new { id = Model.IdProduct })">
                             <img alt="@Model.Name" src="@Model.FotoURL" height="400" width="400" />
                         </a>
+                        
+                        <div class="row center">
+                            <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@Model.IdProduct" id="download-button"
+                               class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                        </div>
                     </div>
                 </div>
             </div>
