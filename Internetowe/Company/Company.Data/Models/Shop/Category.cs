@@ -9,8 +9,7 @@ namespace Company.Data.Models.Shop
 
         [Required(ErrorMessage = "Name of category is required")]
         [MaxLength(30, ErrorMessage = "Name of category should have max 30 characters")]
-        public string Name { get; set; }
-
+        public required string Name { get; set; }
         public string? Description { get; set; }
         public virtual ICollection<Product>? Products { get; set; }
     }

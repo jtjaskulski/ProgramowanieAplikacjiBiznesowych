@@ -20,4 +20,9 @@
     <ItemGroup>
       <Folder Include="Models\" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Migrations\20261114103857_RequiredMigration.cs" />
+      <Compile Remove="Migrations\20261114103857_RequiredMigration.Designer.cs" />
+    </ItemGroup>
 </Project>

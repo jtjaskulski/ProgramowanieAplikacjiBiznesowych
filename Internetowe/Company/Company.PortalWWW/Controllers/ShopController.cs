@@ -8,6 +8,7 @@ public class ShopController(CompanyContext context, ILogger<CartController>  log
 {
     public async Task<IActionResult> Index(int? id)
     {
+        logger.LogInformation("Getting categories");
         if (id == null)
         {
             var firstCategory = await context.Category.FirstOrDefaultAsync();
@@ -34,6 +35,12 @@ public class ShopController(CompanyContext context, ILogger<CartController>  log
             return NotFound();
         }
         return View(item);
-        
+    }
+    
+    public async Task<IActionResult> Discounts()
+    {
+        return View(await context.Product
+            .Where(t => t.IsDiscount)
+            .ToListAsync());
     }
 }

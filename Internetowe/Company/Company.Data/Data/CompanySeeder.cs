@@ -125,7 +125,8 @@ public static class CompanySeeder
             Price = item.Price,
             FotoURL = $"https://picsum.photos/seed/{item.Code}/480/360",
             Description = item.Description,
-            IdCategory = categories[item.Category]
+            IdCategory = categories[item.Category],
+            IsDiscount = new Random().Next(80) % 2 == 1
         }));
     }
 
@@ -267,29 +268,41 @@ public static class CompanySeeder
 
     private static readonly OrderDraft[] OrderDrafts =
     [
-        new(1, 9, "anna.wisniewska", "Anna", "Wiśniewska", "ul. Długa 14/6", "Kraków", "małopolskie", "31-147", "+48 600 111 203", "anna.wisniewska@example.com",
+        new(1, 9, "anna.wisniewska", "Anna", "Wiśniewska", "ul. Długa 14/6", "Kraków", "małopolskie", "31-147",
+            "+48 600 111 203", "anna.wisniewska@example.com",
             [new(0, 1m), new(20, 1m)]),
-        new(2, 11, "piotr.zielinski", "Piotr", "Zieliński", "ul. Marszałkowska 88/12", "Warszawa", "mazowieckie", "00-514", "+48 501 220 118", "piotr.zielinski@example.com",
+        new(2, 11, "piotr.zielinski", "Piotr", "Zieliński", "ul. Marszałkowska 88/12", "Warszawa", "mazowieckie",
+            "00-514", "+48 501 220 118", "piotr.zielinski@example.com",
             [new(4, 1m), new(16, 2m), new(28, 1m)]),
-        new(3, 15, null, "Katarzyna", "Lewandowska", "ul. 3 Maja 5", "Katowice", "śląskie", "40-096", "+48 512 334 907", "k.lewandowska@example.com",
+        new(3, 15, null, "Katarzyna", "Lewandowska", "ul. 3 Maja 5", "Katowice", "śląskie", "40-096", "+48 512 334 907",
+            "k.lewandowska@example.com",
             [new(8, 1m)]),
-        new(5, 10, "marek.wojcik", "Marek", "Wójcik", "ul. Garbary 21", "Poznań", "wielkopolskie", "61-867", "+48 607 445 221", "marek.wojcik@example.com",
+        new(5, 10, "marek.wojcik", "Marek", "Wójcik", "ul. Garbary 21", "Poznań", "wielkopolskie", "61-867",
+            "+48 607 445 221", "marek.wojcik@example.com",
             [new(2, 1m), new(12, 1m)]),
-        new(7, 13, "biuro.nova", "Ewa", "Kamińska", "ul. Legnicka 55", "Wrocław", "dolnośląskie", "54-203", "+48 71 350 10 22", "biuro@nova-demo.pl",
+        new(7, 13, "biuro.nova", "Ewa", "Kamińska", "ul. Legnicka 55", "Wrocław", "dolnośląskie", "54-203",
+            "+48 71 350 10 22", "biuro@nova-demo.pl",
             [new(1, 4m), new(18, 4m), new(25, 2m)]),
-        new(9, 8, null, "Tomasz", "Kaczmarek", "ul. Grunwaldzka 102/4", "Gdańsk", "pomorskie", "80-244", "+48 692 118 540", "tomasz.kaczmarek@example.com",
+        new(9, 8, null, "Tomasz", "Kaczmarek", "ul. Grunwaldzka 102/4", "Gdańsk", "pomorskie", "80-244",
+            "+48 692 118 540", "tomasz.kaczmarek@example.com",
             [new(6, 1m), new(22, 1m)]),
-        new(12, 16, "ola.adamska", "Aleksandra", "Adamska", "ul. Piotrkowska 77", "Łódź", "łódzkie", "90-423", "+48 535 672 014", "ola.adamska@example.com",
+        new(12, 16, "ola.adamska", "Aleksandra", "Adamska", "ul. Piotrkowska 77", "Łódź", "łódzkie", "90-423",
+            "+48 535 672 014", "ola.adamska@example.com",
             [new(10, 1m), new(14, 1m), new(30, 3m)]),
-        new(15, 12, "jan.nowak", "Jan", "Nowak", "ul. Krakowskie Przedmieście 9", "Lublin", "lubelskie", "20-002", "+48 81 441 22 10", "jan.nowak@example.com",
+        new(15, 12, "jan.nowak", "Jan", "Nowak", "ul. Krakowskie Przedmieście 9", "Lublin", "lubelskie", "20-002",
+            "+48 81 441 22 10", "jan.nowak@example.com",
             [new(3, 1m)]),
-        new(21, 18, null, "Magdalena", "Pawlak", "ul. Słowackiego 3/8", "Rzeszów", "podkarpackie", "35-060", "+48 788 230 661", "magdalena.pawlak@example.com",
+        new(21, 18, null, "Magdalena", "Pawlak", "ul. Słowackiego 3/8", "Rzeszów", "podkarpackie", "35-060",
+            "+48 788 230 661", "magdalena.pawlak@example.com",
             [new(7, 1m), new(19, 2m)]),
-        new(28, 14, "szkola.nr4", "Barbara", "Sikora", "ul. Szkolna 4", "Olsztyn", "warmińsko-mazurskie", "10-001", "+48 89 522 11 40", "sekretariat@szkola4-demo.pl",
+        new(28, 14, "szkola.nr4", "Barbara", "Sikora", "ul. Szkolna 4", "Olsztyn", "warmińsko-mazurskie", "10-001",
+            "+48 89 522 11 40", "sekretariat@szkola4-demo.pl",
             [new(5, 6m), new(15, 6m), new(27, 6m)]),
-        new(36, 9, "adam.mazur", "Adam", "Mazur", "ul. Wojska Polskiego 18", "Szczecin", "zachodniopomorskie", "70-471", "+48 604 909 332", "adam.mazur@example.com",
+        new(36, 9, "adam.mazur", "Adam", "Mazur", "ul. Wojska Polskiego 18", "Szczecin", "zachodniopomorskie", "70-471",
+            "+48 604 909 332", "adam.mazur@example.com",
             [new(11, 1m), new(23, 1m)]),
-        new(48, 17, null, "Natalia", "Król", "ul. 11 Listopada 2", "Białystok", "podlaskie", "15-234", "+48 85 740 09 18", "natalia.krol@example.com",
+        new(48, 17, null, "Natalia", "Król", "ul. 11 Listopada 2", "Białystok", "podlaskie", "15-234",
+            "+48 85 740 09 18", "natalia.krol@example.com",
             [new(9, 1m), new(17, 1m), new(26, 2m), new(31, 1m)])
     ];
 
