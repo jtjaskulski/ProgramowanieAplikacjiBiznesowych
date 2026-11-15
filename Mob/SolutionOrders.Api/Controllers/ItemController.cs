@@ -8,7 +8,7 @@ namespace SolutionOrders.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemsController(IMediator mediator) : ControllerBase
+    public class ItemController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
         [ProducesResponseType(typeof(IEnumerable<ItemDto>), StatusCodes.Status200OK)]

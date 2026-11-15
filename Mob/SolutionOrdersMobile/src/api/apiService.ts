@@ -141,30 +141,30 @@ class ApiService {
     // ========== PRODUKTY (ITEMS) ==========
 
     async getItems(): Promise<Item[]> {
-        return this.request<Item[]>('/Items');
+        return this.request<Item[]>('/Item');
     }
 
     async getItem(id: number): Promise<Item> {
-        return this.request<Item>(`/Items/${id}`);
+        return this.request<Item>(`/Item/${id}`);
     }
 
     async createItem(data: CreateItemRequest): Promise<{ id: number }> {
         console.log('Creating item with data:', data);
-        return this.request<{ id: number }>('/Items', {
+        return this.request<{ id: number }>('/Item', {
             method: 'POST',
             body: JSON.stringify(data),
         });
     }
 
     async updateItem(id: number, data: UpdateItemRequest): Promise<void> {
-        return this.request<void>(`/Items/${id}`, {
+        return this.request<void>(`/Item/${id}`, {
             method: 'PUT',
             body: JSON.stringify(data),
         });
     }
 
     async deleteItem(id: number): Promise<void> {
-        return this.request<void>(`/Items/${id}`, {
+        return this.request<void>(`/Item/${id}`, {
             method: 'DELETE',
         });
     }
