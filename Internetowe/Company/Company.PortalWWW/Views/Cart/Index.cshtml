@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Koszyk";
-    Layout = "~/Views/Shared/_ShopLayout.cshtml";
+    Layout = "~/Views/Shared/_CartLayout.cshtml";
 }
 
 
@@ -32,29 +32,32 @@
                 {
                     var price = cartItem.Product.Price * cartItem.Quantity;
                     <div class="col s12 m4">
-                            <div class="icon-block">
-                                <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
-                                <h5 class="center">@cartItem.Product.Name</h5>
-                                <p class="light">Cena jednostkowa: @cartItem.Product.Price.ToString("0.00")</p>
-                                <p class="light">Ilość: @cartItem.Quantity.ToString("0.00")</p>
-                                <p class="light">Cena: @price.ToString("0.00")</p>
-                                <img alt="@cartItem.Product.Name" src="@cartItem.Product.FotoURL" height="200"
-                                     width="200"/>
-                                <div class="row center">
-                                    <a asp-action="DeleteCartItem" asp-controller="Cart" asp-route-id="@cartItem.IdCartItem" id="download-button"
-                                       class="btn-large waves-effect waves-light teal lighten-1">Usuń z koszyka</a>
-                                </div>
-                                <br/>
-                                <div class="row center">
-                                    <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@cartItem.IdProduct" id="download-button"
-                                       class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
-                                </div>
-                                <br/>
-                                <div class="row center">
-                                    <a asp-action="Details" asp-controller="Shop" asp-route-id="@cartItem.IdProduct" id="download-button"
-                                       class="btn-large waves-effect waves-light teal lighten-1">Detale produktu</a>
-                                </div>
+                        <div class="icon-block">
+                            <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
+                            <h5 class="center">@cartItem.Product.Name</h5>
+                            <p class="light">Cena jednostkowa: @cartItem.Product.Price.ToString("0.00")</p>
+                            <p class="light">Ilość: @cartItem.Quantity.ToString("0.00")</p>
+                            <p class="light">Cena: @price.ToString("0.00")</p>
+                            <img alt="@cartItem.Product.Name" src="@cartItem.Product.FotoURL" height="200"
+                                 width="200"/>
+                            <div class="row center">
+                                <a asp-action="DeleteCartItem" asp-controller="Cart" asp-route-id="@cartItem.IdCartItem"
+                                   id="download-button"
+                                   class="btn-large waves-effect waves-light teal lighten-1">Usuń z koszyka</a>
                             </div>
+                            <br/>
+                            <div class="row center">
+                                <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@cartItem.IdProduct"
+                                   id="download-button"
+                                   class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                            </div>
+                            <br/>
+                            <div class="row center">
+                                <a asp-action="Details" asp-controller="Shop" asp-route-id="@cartItem.IdProduct"
+                                   id="download-button"
+                                   class="btn-large waves-effect waves-light teal lighten-1">Detale produktu</a>
+                            </div>
+                        </div>
                     </div>
                 }
             }
@@ -67,6 +70,21 @@
                     </div>
                 </div>
             }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col s12">
+                <div class="icon-block">
+                    <div class="row center">
+                        <a asp-action="Data" asp-controller="Order" id="download-button"
+                           class="btn-large waves-effect waves-light teal lighten-1">Zamów</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
