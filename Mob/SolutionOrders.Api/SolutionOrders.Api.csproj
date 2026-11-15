@@ -29,36 +29,20 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Category\Handlers\Commands\" />
-    <Folder Include="Features\Category\Messages\Commands\" />
-    <Folder Include="Features\Category\Services\" />
-    <Folder Include="Features\Client\Handlers\Commands\" />
-    <Folder Include="Features\Client\Handlers\Queries\" />
-    <Folder Include="Features\Client\Mappings\" />
-    <Folder Include="Features\Client\Messages\Commands\" />
-    <Folder Include="Features\Client\Messages\DTOs\" />
-    <Folder Include="Features\Client\Messages\Queries\" />
-    <Folder Include="Features\Client\Providers\" />
-    <Folder Include="Features\Client\Services\" />
-    <Folder Include="Features\Order\Handlers\Commands\" />
-    <Folder Include="Features\Order\Handlers\Queries\" />
-    <Folder Include="Features\Order\Mappings\" />
-    <Folder Include="Features\Order\Messages\Commands\" />
-    <Folder Include="Features\Order\Messages\DTOs\" />
-    <Folder Include="Features\Order\Messages\Queries\" />
-    <Folder Include="Features\Order\Providers\" />
-    <Folder Include="Features\Order\Services\" />
-    <Folder Include="Features\UnitOfMeasurement\Handlers\Commands\" />
-    <Folder Include="Features\UnitOfMeasurement\Messages\Commands\" />
-    <Folder Include="Features\UnitOfMeasurement\Services\" />
-    <Folder Include="Features\Worker\Handlers\Commands\" />
-    <Folder Include="Features\Worker\Handlers\Queries\" />
-    <Folder Include="Features\Worker\Mappings\" />
-    <Folder Include="Features\Worker\Messages\Commands\" />
-    <Folder Include="Features\Worker\Messages\DTOs\" />
-    <Folder Include="Features\Worker\Messages\Queries\" />
-    <Folder Include="Features\Worker\Providers\" />
-    <Folder Include="Features\Worker\Services\" />
+    <Folder Include="Features\Categories\Handlers\Commands\" />
+    <Folder Include="Features\Categories\Messages\Commands\" />
+    <Folder Include="Features\Categories\Services\" />
+    <Folder Include="Features\Orders\Handlers\Commands\" />
+    <Folder Include="Features\Orders\Handlers\Queries\" />
+    <Folder Include="Features\Orders\Mappings\" />
+    <Folder Include="Features\Orders\Messages\Commands\" />
+    <Folder Include="Features\Orders\Messages\DTOs\" />
+    <Folder Include="Features\Orders\Messages\Queries\" />
+    <Folder Include="Features\Orders\Providers\" />
+    <Folder Include="Features\Orders\Services\" />
+    <Folder Include="Features\UnitOfMeasurements\Handlers\Commands\" />
+    <Folder Include="Features\UnitOfMeasurements\Messages\Commands\" />
+    <Folder Include="Features\UnitOfMeasurements\Services\" />
   </ItemGroup>
 
 </Project>

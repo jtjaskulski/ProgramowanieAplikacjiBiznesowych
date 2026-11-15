@@ -3,10 +3,14 @@ using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using SolutionOrders.Data.Data;
 using System.Reflection;
-using SolutionOrders.Api.Features.Category.Providers;
-using SolutionOrders.Api.Features.Item.Providers;
-using SolutionOrders.Api.Features.Item.Services;
-using SolutionOrders.Api.Features.UnitOfMeasurement.Providers;
+using SolutionOrders.Api.Features.Categories.Providers;
+using SolutionOrders.Api.Features.Clients.Providers;
+using SolutionOrders.Api.Features.Clients.Services;
+using SolutionOrders.Api.Features.Items.Providers;
+using SolutionOrders.Api.Features.Items.Services;
+using SolutionOrders.Api.Features.UnitOfMeasurements.Providers;
+using SolutionOrders.Api.Features.Workers.Providers;
+using SolutionOrders.Api.Features.Workers.Services;
 
 namespace SolutionOrders.Api
 {
@@ -58,9 +62,14 @@ namespace SolutionOrders.Api
             builder.Services.AddScoped<IItemProvider, ItemProvider>();
             builder.Services.AddScoped<ICategoryProvider, CategoryProvider>();
             builder.Services.AddScoped<IUnitOfMeasurementProvider, UnitOfMeasurementProvider>();
+            builder.Services.AddScoped<IWorkerProvider, WorkerProvider>();
+            builder.Services.AddScoped<IClientProvider, ClientProvider>();
+            
 
             // Services
             builder.Services.AddScoped<IItemService, ItemService>();
+            builder.Services.AddScoped<IClientService, ClientService>();
+            builder.Services.AddScoped<IWorkerService, WorkerService>();
 
             // Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());

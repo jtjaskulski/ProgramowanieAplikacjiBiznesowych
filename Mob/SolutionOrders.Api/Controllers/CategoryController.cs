@@ -1,7 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using SolutionOrders.Api.Features.Category.Messages.DTOs;
-using SolutionOrders.Api.Features.Category.Messages.Queries;
+using SolutionOrders.Api.Features.Categories.Messages.DTOs;
+using SolutionOrders.Api.Features.Categories.Messages.Queries;
 
 namespace SolutionOrders.Api.Controllers;
 
