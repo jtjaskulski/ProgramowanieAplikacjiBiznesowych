@@ -5,8 +5,15 @@ import type {
     Client,
     Worker,
     Item,
+    Order,
     CreateItemRequest,
     UpdateItemRequest,
+    CreateClientRequest,
+    UpdateClientRequest,
+    CreateWorkerRequest,
+    UpdateWorkerRequest,
+    CreateOrderRequest,
+    UpdateOrderRequest,
 } from '../types/models';
 
 class ApiService {
@@ -175,12 +182,30 @@ class ApiService {
         return this.request<Client[]>('/Client');
     }
 
-    async createClient(data: Omit<Client, 'idClient'>): Promise<{ id: number }> {
+    async getClient(id: number): Promise<Client> {
+        return this.request<Client>(`/Client/${id}`);
+    }
+
+    async createClient(data: CreateClientRequest): Promise<{ id: number }> {
         return this.request<{ id: number }>('/Client', {
             method: 'POST',
             body: JSON.stringify(data),
         });
     }
+
+    async updateClient(id: number, data: UpdateClientRequest): Promise<void> {
+        return this.request<void>(`/Client/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+        });
+    }
+
+    async deleteClient(id: number): Promise<void> {
+        return this.request<void>(`/Client/${id}`, {
+            method: 'DELETE',
+        });
+    }
+
 
     // ========== PRACOWNICY ==========
 
@@ -188,12 +213,66 @@ class ApiService {
         return this.request<Worker[]>('/Worker');
     }
 
-    async createWorker(data: Omit<Worker, 'idWorker'>): Promise<{ id: number }> {
+    async createWorkers(data: Omit<Worker, 'idWorker'>): Promise<{ id: number }> {
         return this.request<{ id: number }>('/Worker', {
             method: 'POST',
             body: JSON.stringify(data),
         });
     }
+
+    async getWorker(id: number): Promise<Worker> {
+        return this.request<Worker>(`/Worker/${id}`);
+    }
+
+    async createWorker(data: CreateWorkerRequest): Promise<{ id: number }> {
+        return this.request<{ id: number }>('/Worker', {
+            method: 'POST',
+            body: JSON.stringify(data),
+        });
+    }
+
+    async updateWorker(id: number, data: UpdateWorkerRequest): Promise<void> {
+        return this.request<void>(`/Worker/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+        });
+    }
+
+    async deleteWorker(id: number): Promise<void> {
+        return this.request<void>(`/Worker/${id}`, {
+            method: 'DELETE',
+        });
+    }
+
+    // ========== ZAMÓWIENIA ==========
+
+    async getOrders(): Promise<Order[]> {
+        return this.request<Order[]>('/Order');
+    }
+
+    async getOrder(id: number): Promise<Order> {
+        return this.request<Order>(`/Order/${id}`);
+    }
+
+    async createOrder(data: CreateOrderRequest): Promise<{ id: number }> {
+        return this.request<{ id: number }>('/Order', {
+            method: 'POST',
+            body: JSON.stringify(data),
+        });
+    }
+
+    async updateOrder(id: number, data: UpdateOrderRequest): Promise<void> {
+        return this.request<void>(`/Order/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+        });
+    }
+
+    async deleteOrder(id: number): Promise<void> {
+        return this.request<void>(`/Order/${id}`, {
+            method: 'DELETE',
+        });
+    }    
 }
 
 

@@ -3,6 +3,7 @@ import { View, StatusBar, useColorScheme, StyleSheet } from 'react-native';
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ItemsProvider } from './src/context/ItemsContext';
 import RootNavigator from './src/navigation/RootNavigator';
+import {CartProvider} from "./src/context/CartContext.tsx";
 
 function App(): React.JSX.Element {
     const isDarkMode = useColorScheme() === 'dark';
@@ -11,7 +12,9 @@ function App(): React.JSX.Element {
         <SafeAreaProvider>
             <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
             <ItemsProvider>
+                <CartProvider>
                 <AppContent />
+                </CartProvider>
             </ItemsProvider>
         </SafeAreaProvider>
     );
