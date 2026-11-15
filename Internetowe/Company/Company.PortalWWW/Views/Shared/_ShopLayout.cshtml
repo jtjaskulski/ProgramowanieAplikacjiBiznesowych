@@ -13,10 +13,6 @@
     <main role="main">
         @RenderBody()
     </main>
-    @await Html.PartialAsync("ParralaxSection")
-    @await Component.InvokeAsync("NewsComponent")
-    @await Html.PartialAsync("ParralaxSection")
-    @await Html.PartialAsync("LinkContent")
     @await Html.PartialAsync("Footer")
     @await Html.PartialAsync("ScriptSection")
     @await RenderSectionAsync("Scripts", required: false)
