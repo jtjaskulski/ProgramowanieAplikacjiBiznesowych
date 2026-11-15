@@ -1,10 +1,12 @@
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
-using SolutionOrders.Api.Features.Providers;
-using SolutionOrders.Api.Features.Services;
 using SolutionOrders.Data.Data;
 using System.Reflection;
+using SolutionOrders.Api.Features.Category.Providers;
+using SolutionOrders.Api.Features.Item.Providers;
+using SolutionOrders.Api.Features.Item.Services;
+using SolutionOrders.Api.Features.UnitOfMeasurement.Providers;
 
 namespace SolutionOrders.Api
 {
