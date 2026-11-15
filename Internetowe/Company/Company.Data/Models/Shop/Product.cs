@@ -10,10 +10,10 @@ namespace Company.Data.Models.Shop
         public int IdProduct { get; set; }
 
         [Required(ErrorMessage = "Code of product is required")]
-        public string Code { get; set; }
+        public required string Code { get; set; }
 
         [Required(ErrorMessage = "Name of product is required")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [Required(ErrorMessage = "Price of product is required")]
         [Column(TypeName = "money")]
@@ -21,10 +21,13 @@ namespace Company.Data.Models.Shop
 
         //[Required(ErrorMessage = "Photo of product is required")]
         [Display(Name = "Select your photo")]
-        public string FotoURL { get; set; }
+        public required string FotoURL { get; set; }
 
         [Display(Name = "Description")]
-        public string Description { get; set; }
+        public required string Description { get; set; }
+        
+        [Display(Name = "Is that product discounted?")]
+        public bool IsDiscount { get; set; }
 
         [Display(Name = "Category of the product")]
         public int IdCategory { get; set; }

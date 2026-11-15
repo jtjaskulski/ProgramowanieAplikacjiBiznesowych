@@ -9,7 +9,7 @@
     <div class="section no-pad-bot">
         <div class="container">
             <br><br>
-            <h1 class="header center teal-text text-lighten-2">Szczegóły towaru</h1>
+            <h1 class="header center teal-text text-lighten-2">Kategoria</h1>
             <br>
             <h2 class="header center teal-text text-lighten-2">@Model.Name</h2>
             <div class="row center">
@@ -26,7 +26,7 @@
         </div>
 
         
-        <div class="parallax"><img src="https://placehold.co/1920x900/4e342e/4e342e" alt="I <3 Mikruta" width="2400" height="900"></div>
+        <div class="parallax"><img src="https://images.unsplash.com/photo-1626428091984-48f9ffbf927c?auto=format&fit=crop&w=2400&h=1400&q=80" alt="I <3 Mikruta"></div>
     </div>
 </div>
 
@@ -38,17 +38,24 @@
                 foreach (var product in Model?.Products)
                 {
                     <div class="col s12 m4">
-                        <a asp-action="Details" asp-route-id="@product.IdProduct">
                             <div class="icon-block">
                                 <h2 class="center brown-text"><i class="material-icons">flash_on</i></h2>
                                 <h5 class="center">@product.Name</h5>
                                 <p class="light">@product.Price.ToString("0.00")</p>
-                                <p class="light">@product.Price.ToString("0.00")</p>
                                 <a href="@Url.Action("Details",new {id=product.IdProduct})">
-                                    <img alt="@product.Name" src="@product.FotoURL" height="40" width="40" />
+                                    <img alt="@product.Name" src="@product.FotoURL" height="200" width="200" />
                                 </a> 
+                                <div class="row center">
+                                    <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@product.IdProduct" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Dodaj do koszyka</a>
+                                </div>
+                                <br/>
+                                <div class="row center">
+                                    <a asp-action="Details" asp-controller="Shop" asp-route-id="@product.IdProduct" id="download-button"
+                                       class="btn-large waves-effect waves-light teal lighten-1">Detale produktu</a>
+                                </div>
                             </div>
-                        </a>
+                        <br/>
                     </div>
                 }
             }

@@ -6,17 +6,14 @@
         <div class="nav-wrapper container">
             <a id="logo-container" class="brand-logo" asp-area="" asp-controller="Home"
                asp-action="Index">Akademia WSB-NLU MVC</a>
-            @await Html.PartialAsync("NavigationLinks",
-                (IEnumerable<Company.Data.Models.CMS.Page>)ViewBag.ModelPage)
+            @await Component.InvokeAsync("NavigationLinksComponent")
         </div>
     </nav>
 
     <main role="main">
         @RenderBody()
     </main>
-    
-    @await Html.PartialAsync("NewsPartial",
-        (IEnumerable<Company.Data.Models.CMS.News>)ViewBag.ModelNews)
+    @await Component.InvokeAsync("NewsComponent")
     @await Html.PartialAsync("ParralaxSection")
     @await Html.PartialAsync("LinkContent")
     @await Html.PartialAsync("Footer")

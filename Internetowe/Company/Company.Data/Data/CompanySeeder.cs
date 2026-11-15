@@ -40,44 +40,16 @@ public static class CompanySeeder
                 "Company to sklep ze sprzętem komputerowym i elektroniką użytkową. " +
                 "Sprzedajemy laptopy, smartfony, monitory i akcesoria z dostawą na terenie całej Polski.<br><br>" +
                 "Poniżej znajdziesz aktualności, a w zakładce Sklep pełną ofertę pogrupowaną według kategorii."),
-            Page(2, "O nas", "Kim jesteśmy",
-                "Działamy od 2014 roku. Zaczynaliśmy od małego serwisu laptopów w Krakowie, " +
-                "dziś wysyłamy zamówienia z magazynu w Skawinie i punktu odbioru w Warszawie.<br><br>" +
-                "Stawiamy na sprzęt, który sami chcielibyśmy kupić: sprawdzone serie, czytelne opisy i realne stany magazynowe."),
-            Page(3, "Oferta", "Nasza oferta",
-                "W stałej sprzedaży mamy laptopy biurowe i gamingowe, smartfony, tablety, monitory, " +
-                "słuchawki, podzespoły oraz sprzęt sieciowy.<br><br>" +
-                "Do każdego produktu dopisujemy kod handlowy, cenę brutto i krótki opis zastosowania, " +
-                "żeby porównanie modeli nie wymagało wychodzenia poza sklep."),
-            Page(4, "Kontakt", "Dane kontaktowe",
-                "Company Sp. z o.o.<br>ul. Przemysłowa 12<br>32-050 Skawina<br><br>" +
-                "tel. +48 12 350 20 40<br>e-mail: sklep@company-demo.pl<br><br>" +
-                "Biuro obsługi: poniedziałek–piątek, 8:00–16:00."),
-            Page(5, "Dostawa", "Dostawa i płatności",
-                "Kurier DPD i InPost oraz odbiór osobisty w Skawinie i Warszawie. " +
+            Page(2, "Dostawa", "Dostawa i płatności",
+                "Kurier InPost oraz odbiór osobisty w Skawinie i Warszawie. " +
                 "Darmowa dostawa od 300 zł. Zamówienia złożone do 14:00 wychodzą tego samego dnia roboczego.<br><br>" +
                 "Płatność: szybki przelew, BLIK, karta lub przy odbiorze."),
-            Page(6, "Zwroty", "Zwroty i reklamacje",
-                "Masz 14 dni na odstąpienie od umowy zawartej na odległość. " +
-                "Towar powinien wrócić kompletny, w opakowaniu, które da się ponownie wysłać.<br><br>" +
-                "Reklamacje z tytułu rękojmi przyjmujemy przez formularz w mailu potwierdzającym zamówienie. " +
-                "Sprzęt objęty gwarancją producenta kierujemy do autoryzowanego serwisu."),
-            Page(7, "Regulamin", "Regulamin sklepu",
-                "Sklep prowadzi Company Sp. z o.o. Ceny zawierają podatek VAT. " +
-                "Złożenie zamówienia jest ofertą kupna, a umowa dochodzi do skutku w chwili potwierdzenia mailowego.<br><br>" +
-                "Regulamin nie zastępuje informacji na karcie produktu: tam znajdziesz specyfikację i aktualną cenę."),
-            Page(8, "FAQ", "Pytania i odpowiedzi",
-                "Czy mogę odebrać zamówienie osobiście? Tak, po mailu „gotowe do odbioru”.<br>" +
-                "Czy fakturę wystawiacie dla firmy? Tak, podaj NIP w uwagach do zamówienia.<br>" +
-                "Ile trwa wymiana? Po otrzymaniu zwrotu wysyłamy nowy egzemplarz w 2 dni robocze."),
-            Page(9, "Kariera", "Praca w Company",
+            Page(3, "Regulamin", "Regulamin sklepu",
+                ""),
+            Page(4, "Kariera", "Praca w Company",
                 "Szukamy osób do magazynu, obsługi klienta i serwisu laptopów. " +
                 "Praca stacjonarna w Skawinie, jedna zmiana, wdrożenie przy doświadczonym zespole.<br><br>" +
-                "CV wysyłaj na praca@company-demo.pl z nazwą stanowiska w tytule."),
-            Page(10, "Nowosci", "Co nowego w ofercie",
-                "Co miesiąc dokładamy kilka serii: obecnie laptopy 14 cali do biura, " +
-                "monitory 27 cali z matrycą IPS oraz zestawy słuchawek do pracy zdalnej.<br><br>" +
-                "Starsze serie przeceniamy zamiast trzymać je w magazynie, dlatego warto zaglądać do kategorii promocji w aktualnościach.")
+                "CV wysyłaj na praca@company-demo.pl z nazwą stanowiska w tytule.")
         );
     }
 
@@ -122,12 +94,10 @@ public static class CompanySeeder
         context.Category.AddRange(
             Category("Laptopy", "Komputery przenośne do biura, nauki i gier."),
             Category("Smartfony", "Telefony z Androidem i iOS, od modeli codziennych po flagowce."),
-            Category("Tablety", "Tablety do notatek, nauki i multimediów."),
             Category("Monitory", "Ekrany biurowe, graficzne i gamingowe."),
             Category("Audio", "Słuchawki, głośniki i zestawy do wideokonferencji."),
             Category("Akcesoria", "Etui, ładowarki, kable i drobne dodatki."),
-            Category("Podzespoły", "Dyski, pamięci RAM, zasilacze i obudowy."),
-            Category("Sieć", "Routery, przełączniki i karty sieciowe.")
+            Category("Podzespoły", "Dyski, pamięci RAM, zasilacze i obudowy.")
         );
     }
 
@@ -138,22 +108,15 @@ public static class CompanySeeder
 
         var categories = context.Category.ToDictionary(c => c.Name, c => c.IdCategory);
 
-        foreach (var (name, description) in MissingCategories(categories.Keys))
-        {
-            var category = Category(name, description);
-            context.Category.Add(category);
-            context.SaveChanges();
-            categories[name] = category.IdCategory;
-        }
-
         context.Product.AddRange(Catalog.Select(item => new Product
         {
             Code = item.Code,
             Name = item.Name,
             Price = item.Price,
-            FotoURL = $"https://picsum.photos/seed/{item.Code}/480/360",
+            FotoURL = $"https://placehold.co/480x360/png?text={Uri.EscapeDataString(item.Code)}",
             Description = item.Description,
-            IdCategory = categories[item.Category]
+            IdCategory = categories[item.Category],
+            IsDiscount = new Random().Next(80) % 2 == 1
         }));
     }
 
@@ -243,16 +206,6 @@ public static class CompanySeeder
         }
     }
 
-    private static IEnumerable<(string Name, string Description)> MissingCategories(IEnumerable<string> existing)
-    {
-        var present = existing.ToHashSet(StringComparer.Ordinal);
-        foreach (var name in Catalog.Select(item => item.Category).Distinct())
-        {
-            if (!present.Contains(name))
-                yield return (name, "Kategoria uzupełniona przez seeder.");
-        }
-    }
-
     private static Page Page(int order, string linkTitle, string title, string content) => new()
     {
         DisplayOrder = order,
@@ -295,29 +248,41 @@ public static class CompanySeeder
 
     private static readonly OrderDraft[] OrderDrafts =
     [
-        new(1, 9, "anna.wisniewska", "Anna", "Wiśniewska", "ul. Długa 14/6", "Kraków", "małopolskie", "31-147", "+48 600 111 203", "anna.wisniewska@example.com",
+        new(1, 9, "anna.wisniewska", "Anna", "Wiśniewska", "ul. Długa 14/6", "Kraków", "małopolskie", "31-147",
+            "+48 600 111 203", "anna.wisniewska@example.com",
             [new(0, 1m), new(20, 1m)]),
-        new(2, 11, "piotr.zielinski", "Piotr", "Zieliński", "ul. Marszałkowska 88/12", "Warszawa", "mazowieckie", "00-514", "+48 501 220 118", "piotr.zielinski@example.com",
+        new(2, 11, "piotr.zielinski", "Piotr", "Zieliński", "ul. Marszałkowska 88/12", "Warszawa", "mazowieckie",
+            "00-514", "+48 501 220 118", "piotr.zielinski@example.com",
             [new(4, 1m), new(16, 2m), new(28, 1m)]),
-        new(3, 15, null, "Katarzyna", "Lewandowska", "ul. 3 Maja 5", "Katowice", "śląskie", "40-096", "+48 512 334 907", "k.lewandowska@example.com",
+        new(3, 15, null, "Katarzyna", "Lewandowska", "ul. 3 Maja 5", "Katowice", "śląskie", "40-096", "+48 512 334 907",
+            "k.lewandowska@example.com",
             [new(8, 1m)]),
-        new(5, 10, "marek.wojcik", "Marek", "Wójcik", "ul. Garbary 21", "Poznań", "wielkopolskie", "61-867", "+48 607 445 221", "marek.wojcik@example.com",
+        new(5, 10, "marek.wojcik", "Marek", "Wójcik", "ul. Garbary 21", "Poznań", "wielkopolskie", "61-867",
+            "+48 607 445 221", "marek.wojcik@example.com",
             [new(2, 1m), new(12, 1m)]),
-        new(7, 13, "biuro.nova", "Ewa", "Kamińska", "ul. Legnicka 55", "Wrocław", "dolnośląskie", "54-203", "+48 71 350 10 22", "biuro@nova-demo.pl",
+        new(7, 13, "biuro.nova", "Ewa", "Kamińska", "ul. Legnicka 55", "Wrocław", "dolnośląskie", "54-203",
+            "+48 71 350 10 22", "biuro@nova-demo.pl",
             [new(1, 4m), new(18, 4m), new(25, 2m)]),
-        new(9, 8, null, "Tomasz", "Kaczmarek", "ul. Grunwaldzka 102/4", "Gdańsk", "pomorskie", "80-244", "+48 692 118 540", "tomasz.kaczmarek@example.com",
+        new(9, 8, null, "Tomasz", "Kaczmarek", "ul. Grunwaldzka 102/4", "Gdańsk", "pomorskie", "80-244",
+            "+48 692 118 540", "tomasz.kaczmarek@example.com",
             [new(6, 1m), new(22, 1m)]),
-        new(12, 16, "ola.adamska", "Aleksandra", "Adamska", "ul. Piotrkowska 77", "Łódź", "łódzkie", "90-423", "+48 535 672 014", "ola.adamska@example.com",
+        new(12, 16, "ola.adamska", "Aleksandra", "Adamska", "ul. Piotrkowska 77", "Łódź", "łódzkie", "90-423",
+            "+48 535 672 014", "ola.adamska@example.com",
             [new(10, 1m), new(14, 1m), new(30, 3m)]),
-        new(15, 12, "jan.nowak", "Jan", "Nowak", "ul. Krakowskie Przedmieście 9", "Lublin", "lubelskie", "20-002", "+48 81 441 22 10", "jan.nowak@example.com",
+        new(15, 12, "jan.nowak", "Jan", "Nowak", "ul. Krakowskie Przedmieście 9", "Lublin", "lubelskie", "20-002",
+            "+48 81 441 22 10", "jan.nowak@example.com",
             [new(3, 1m)]),
-        new(21, 18, null, "Magdalena", "Pawlak", "ul. Słowackiego 3/8", "Rzeszów", "podkarpackie", "35-060", "+48 788 230 661", "magdalena.pawlak@example.com",
+        new(21, 18, null, "Magdalena", "Pawlak", "ul. Słowackiego 3/8", "Rzeszów", "podkarpackie", "35-060",
+            "+48 788 230 661", "magdalena.pawlak@example.com",
             [new(7, 1m), new(19, 2m)]),
-        new(28, 14, "szkola.nr4", "Barbara", "Sikora", "ul. Szkolna 4", "Olsztyn", "warmińsko-mazurskie", "10-001", "+48 89 522 11 40", "sekretariat@szkola4-demo.pl",
+        new(28, 14, "szkola.nr4", "Barbara", "Sikora", "ul. Szkolna 4", "Olsztyn", "warmińsko-mazurskie", "10-001",
+            "+48 89 522 11 40", "sekretariat@szkola4-demo.pl",
             [new(5, 6m), new(15, 6m), new(27, 6m)]),
-        new(36, 9, "adam.mazur", "Adam", "Mazur", "ul. Wojska Polskiego 18", "Szczecin", "zachodniopomorskie", "70-471", "+48 604 909 332", "adam.mazur@example.com",
+        new(36, 9, "adam.mazur", "Adam", "Mazur", "ul. Wojska Polskiego 18", "Szczecin", "zachodniopomorskie", "70-471",
+            "+48 604 909 332", "adam.mazur@example.com",
             [new(11, 1m), new(23, 1m)]),
-        new(48, 17, null, "Natalia", "Król", "ul. 11 Listopada 2", "Białystok", "podlaskie", "15-234", "+48 85 740 09 18", "natalia.krol@example.com",
+        new(48, 17, null, "Natalia", "Król", "ul. 11 Listopada 2", "Białystok", "podlaskie", "15-234",
+            "+48 85 740 09 18", "natalia.krol@example.com",
             [new(9, 1m), new(17, 1m), new(26, 2m), new(31, 1m)])
     ];
 
@@ -339,12 +304,6 @@ public static class CompanySeeder
             "Czysty system, mocny aparat i pięć lat aktualizacji. Dobry wybór, jeśli telefon ma zostać na dłużej."),
         ("Smartfony", "PHN-F01", "Smartfon Flagowiec 256 GB", 4599.00m,
             "Flagowiec z jasnym ekranem 120 Hz, szybkim ładowaniem i wodoszczelną obudową."),
-        ("Tablety", "TAB-1001", "Tablet Note 10", 1799.00m,
-            "Tablet 10,4 cala do notatek i filmów. Rysik jest w zestawie, a obudowa mieści się w mniejszym plecaku."),
-        ("Tablety", "TAB-1101", "Tablet Study 11", 2399.00m,
-            "11 cali, klawiatura w zestawie i 128 GB pamięci. Wygodny do zajęć online i czytania skryptów."),
-        ("Tablety", "TAB-1201", "Tablet Draw 12", 3299.00m,
-            "Ekran 12,4 cala o wysokiej rozdzielczości i rysik z małą latencją. Do szkiców i oznaczania PDF-ów."),
         ("Monitory", "MON-2401", "Monitor 24 cale IPS", 649.00m,
             "24 cale, matryca IPS, 75 Hz i cienkie ramki. Podstawowy ekran do biurka, z regulacją pochylenia."),
         ("Monitory", "MON-2701", "Monitor 27 cali IPS", 999.00m,
@@ -382,14 +341,6 @@ public static class CompanySeeder
         ("Podzespoły", "PC-PSU01", "Zasilacz 650 W 80+", 399.00m,
             "Zasilacz 650 W z certyfikatem 80 Plus Bronze i odpinanymi kablami. Do zestawów z jedną kartą graficzną."),
         ("Podzespoły", "PC-CASE1", "Obudowa ATX z siatką", 279.00m,
-            "Przewiewna obudowa ATX z panelem bocznym ze szkła i miejscem na chłodzenie z przodu."),
-        ("Sieć", "NET-R01", "Router Wi-Fi 6", 349.00m,
-            "Router dwuzakresowy Wi-Fi 6 do mieszkania. Cztery porty LAN i prosta aplikacja do konfiguracji."),
-        ("Sieć", "NET-R02", "Router Wi-Fi 6 mesh", 699.00m,
-            "Zestaw mesh na większe mieszkanie. Drugi punkt dokłada się bez przeciągania kabla przez korytarz."),
-        ("Sieć", "NET-S01", "Przełącznik 8 portów", 119.00m,
-            "Metalowy switch gigabitowy, 8 portów, bez wentylatora. Do biurka albo szafy w domu."),
-        ("Sieć", "NET-U01", "Karta USB Wi-Fi 6", 99.00m,
-            "Karta USB dla komputera, który nie ma wbudowanego Wi-Fi. Działa od razu po podłączeniu.")
+            "Przewiewna obudowa ATX z panelem bocznym ze szkła i miejscem na chłodzenie z przodu.")
     ];
 }

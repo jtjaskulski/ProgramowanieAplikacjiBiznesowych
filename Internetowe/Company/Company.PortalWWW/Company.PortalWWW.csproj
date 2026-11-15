@@ -24,4 +24,8 @@
     <ProjectReference Include="..\Company.Data\Company.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Cart\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

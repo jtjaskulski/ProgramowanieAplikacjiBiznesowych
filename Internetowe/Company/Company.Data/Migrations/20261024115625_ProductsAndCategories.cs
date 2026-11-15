@@ -5,7 +5,7 @@
 namespace Company.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class productsandcategories : Migration
+    public partial class ProductsAndCategories : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
