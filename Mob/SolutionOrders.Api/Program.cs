@@ -8,6 +8,8 @@ using SolutionOrders.Api.Features.Clients.Providers;
 using SolutionOrders.Api.Features.Clients.Services;
 using SolutionOrders.Api.Features.Items.Providers;
 using SolutionOrders.Api.Features.Items.Services;
+using SolutionOrders.Api.Features.Orders.Providers;
+using SolutionOrders.Api.Features.Orders.Services;
 using SolutionOrders.Api.Features.UnitOfMeasurements.Providers;
 using SolutionOrders.Api.Features.Workers.Providers;
 using SolutionOrders.Api.Features.Workers.Services;
@@ -64,12 +66,14 @@ namespace SolutionOrders.Api
             builder.Services.AddScoped<IUnitOfMeasurementProvider, UnitOfMeasurementProvider>();
             builder.Services.AddScoped<IWorkerProvider, WorkerProvider>();
             builder.Services.AddScoped<IClientProvider, ClientProvider>();
+            builder.Services.AddScoped<IOrderProvider, OrderProvider>();
             
 
             // Services
             builder.Services.AddScoped<IItemService, ItemService>();
             builder.Services.AddScoped<IClientService, ClientService>();
             builder.Services.AddScoped<IWorkerService, WorkerService>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
 
             // Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.GetExecutingAssembly());
